@@ -1,0 +1,21 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+{#<div class="container">#}
+    <div class="row row-cols-1 row-cols-md-6">
+        {% for good in goods %}
+            <div class="col mb-2">
+                <div class="card h-100">
+                    <a href="/good/one?id={{ good.id|e }}"><img src="/img/{{good.file_name}}" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 15px;">{{ good.product_name|e }}</h5>
+                        <p class="card-text">Цена: {{ good.price|e }}$</p>
+                    </div>
+                    <a href="/basket/add?id={{ good.id|e }}" class="btn btn-primary">В корзину</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{#</div>#}
+{% endblock %}
+

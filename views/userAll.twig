@@ -1,0 +1,13 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+
+    <h2>Список пользователей</h2>
+    {% for user in users %}
+        <div>
+            <h3>Имя: {{ user.name|e }}</h3>
+            <p>Логин: {{ user.login|e }}</p><hr>
+        </div>
+    {% endfor %}
+
+{% endblock %}

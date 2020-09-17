@@ -1,0 +1,11 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+    
+        <h1>Личный кабинет администратора</h1>
+        <a href="/user/all?sortby=date"><button type="button" class="btn btn-secondary">Пользователи</button></a>
+        <a href="/user/orders?sortby=date"><button type="button" class="btn btn-secondary">Заказы</button></a>
+        <a href="/good/insert"><button type="button" class="btn btn-secondary">Добавить товар</button></a>
+        <a href="/user/exit"><button type="button" class="btn btn-secondary">Выйти</button></a>
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+</head>
+<body>
+
+<div class="container">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="/" role="tab" aria-controls="home" aria-selected="true">Главная</a>
+        </li>
+        {% for item in menu %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="{{item.href}}" role="tab" aria-controls="home" aria-selected="true">{{item.name}}</a>
+            </li>
+        {% else %}
+            <li><a href="/">Главная</a></li>
+        {% endfor %}
+    </ul><br>
+
+    
+    {% block content %}
+        <h1>Добро пожаловать!</h1>
+    {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+
+<div class="basket">
+    
+    {% for val in arr['goods'] %}
+        <div class='good'>
+            <img src = "/img/{{val.good.file_name}}">
+            <h5>{{val.good.product_name}}</h5>
+            <p>Цена: {{val.good.price}}$</p>
+            <p>Количество: {{val.count}}</p>
+            <a href="/basket/add?id={{val.good.id}}"><button type="button" class="btn btn-secondary">Добавить</button></a>
+            <a href="/basket/delete?id={{val.good.id}}"><button type="button" class="btn btn-secondary">Удалить</button></a><hr>
+        </div>
+    {% endfor %}
+        
+    {% if arr['goods'] is empty %}
+        <b><p>Корзина пуста.</p></b> 
+    {% endif %}
+
+</div>
+
+{% if arr.auth == 'true' %}
+    <a href="/order/insert"><button type="button" class="btn btn-success">Заказать</button></a><hr>
+{% endif %}
+
+{% if arr.auth is empty %}
+    <p>Для оформления заказа необходимо предварительно войти в <a href="/user/auth">личный кабинет</a></p>
+{% endif %}
+
+{% endblock %}

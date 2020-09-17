@@ -1,0 +1,36 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+<h1>Заказы</h1>
+<div class = 'user_orders'>
+<table style = 'border: 1px solid black; border-collapse: collapse;'>
+        <tr style = 'border: 1px solid black; text-align: center;' class="orders_head">
+            <th style = 'border: 1px solid black;'>№ заказа</th>
+            <th style = 'border: 1px solid black;'>Номер заказчика</th>
+            <th style = 'border: 1px solid black;'>Адрес доставки</th>
+            <th style = 'border: 1px solid black;'>Дата регистрации</th>
+            <th style = 'border: 1px solid black;'>Стадия обслуживания</th>
+        </tr>
+        {% for order in orders %}
+        <tr style = 'border: 1px solid black;'>
+            <td style = 'border: 1px solid black;'>{{order.id}}</td>
+            <td style = 'border: 1px solid black;'>{{order.user_id}}</td>
+            <td style = 'border: 1px solid black;'>{{order.adress}}</td>
+            <td style = 'border: 1px solid black;'>{{order.date}}</td>
+            <td style = 'border: 1px solid black;'>
+                <form method="post" action="?order_id={{order.id}}&sortby=date">
+                    <select name = 'status' style="width: 200px; font-size: 12px;">
+                        <option selected disabled hidden>{{order.status}}</option>
+                        <option value='Предварительная обработка'>Предварительная обработка</option>
+                        <option value='Ожидание оплаты'>Ожидание оплаты</option>
+                        <option value='Сборка'>Сборка</option>
+                        <option value='Доставка'>Доставка</option>
+                    </select>
+                    <input type="submit" value="Изменить">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+</table>
+</div>
+{% endblock %}

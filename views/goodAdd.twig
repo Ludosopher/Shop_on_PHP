@@ -1,0 +1,10 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+    <form method="post">
+        <input type="text" class="form-control" name="file_name" placeholder="Название файла изображения товара" style="width: 500px;"><br>
+        <input type="text" class="form-control" name="product_name" placeholder="Название товара" style="width: 500px;"><br>
+        <input type="text" class="form-control" name="price" placeholder="Цена" style="width: 500px;"><br>
+        <input type="submit">
+    </form>
+{% endblock %}

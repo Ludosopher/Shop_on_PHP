@@ -1,0 +1,56 @@
+                                    /*Стили goodAll.php*/
+.img_block {
+    display: flex;
+    justify-content: space-around;
+ }
+
+.img_block > div {
+    width: 105px;
+}
+
+.img_block > div > a {
+    display: block;
+}
+
+.img_block > div > h3 {
+    font-size: 12px;
+}
+
+.img_block > div > a > img {
+    width: 100px;
+}
+                                     /*Стили goodOne.php*/
+.product img {
+    display: block;
+    margin: 50px auto;
+    border: 1px solid DarkGrey;
+}
+                                    
+.product h3, .product p {
+    text-align: center;
+
+}
+
+.product a {
+    display: block;
+    text-align: center;
+}
+
+.basket > div > img {
+    width: 50px;
+    
+}
+                                     /*Стили orderAll.twig*/
+/* .user_orders table > tbody {
+    border: 1px solid black;
+    border-collapse: collapse;
+} 
+
+.user_orders > table > tbody > tr {
+    border: 1px solid black;
+}
+
+.user_orders > table > tbody > tr > td {
+    border: 1px solid black;
+} */
+ 

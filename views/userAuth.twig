@@ -1,0 +1,12 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+    <form method="post">
+        <div style="width: 500px;">
+            <h6>Для входа в личный кабинет укажите свои логин и пароль</h6>
+            <input type="text" class="form-control" name="login" placeholder="Логин"><br>
+            <input type="text" class="form-control" name="password" placeholder="Пароль"><br>
+            <input type="submit" value="Войти">
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+    <form method="post">
+        <div style="width: 500px;">
+        <input type="text" class="form-control" name="name" placeholder="Имя пользователя"><br>
+        <input type="text" class="form-control" name="login" placeholder="Логин"><br>
+        <input type="text" class="form-control" name="password" placeholder="Пароль"><br>
+        <p>Укажите дату рождения</p>
+        <input type="date" class="form-control" name="date"><br>
+        <input type="submit">
+        </div>
+    </form>
+{% endblock %}

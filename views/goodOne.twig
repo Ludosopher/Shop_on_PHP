@@ -1,0 +1,45 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+    
+{#    <div class="product">#}
+{#        <img src = "/img/{{good.file_name|e}}">#}
+{#        <h3>{{good.product_name|e}}</h3>#}
+{#        <p> Цена: {{good.price|e}}$</p>#}
+{#        <p>Число просмотров: {{good.views|e}}</p>#}
+{#        <a href="/basket/add?id={{ good.id|e }}&no_view=true">В корзину</a>#}
+{#        <a href="/good/all">Назад</a>#}
+{#    </div>#}
+
+    <div class="card" style="width: 22rem; margin:0 auto;">
+        <img src="/img/{{good.file_name|e}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{good.product_name|e}}</h5>
+            <p class="card-text">Число просмотров: {{good.views|e}}</p>
+            <a href="/basket/add?id={{ good.id|e }}&no_view=true" class="btn btn-primary">В корзину</a>
+            <a href="/good/all?sortby=views" class="btn btn-primary">Назад</a>
+        </div>
+    </div>
+
+    <div style="width: 500px; margin:30px auto;">
+        <h5>Оставить свой отзыв</h5>
+        <form method="post">
+            <label for="author">Укажите своё имя:</label>
+            <input id="author" class="form-control" type="text" name="author"><br>
+            <label for="text">Напишите свой отзыв:</label><br>
+            <textarea id="text" class="form-control" rows="10" cols="45" name="text"></textarea><br>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class = 'all_feedback'>
+        <h3 style="text-align: center;">Отзывы о товаре</h3>
+        {% for commet in feedback %}   
+            <div>    
+                <b><p>{{commet.author|e}}: {{commet.date|e}}</p></b>
+                <p>{{commet.text|e}}</p>
+            </div><hr>
+        {% endfor %}  
+    </div>
+    
+{% endblock %}

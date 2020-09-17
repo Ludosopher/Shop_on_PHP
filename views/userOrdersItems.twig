@@ -1,0 +1,32 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+<h1>Мои заказы</h1>
+<div class = 'user_orders'>
+<table style = 'border: 1px solid black; border-collapse: collapse;'>
+        <tr class="orders_head" style = 'border: 1px solid black;'>
+            <th style = 'border: 1px solid black;'>№ заказа</th>
+            <th style = 'border: 1px solid black;'>Изображение товара</th>
+            <th style = 'border: 1px solid black;'>Название товара</th>
+            <th style = 'border: 1px solid black;'>Цена, $</th>
+            <th style = 'border: 1px solid black;'>Количество, ед.</th>
+            <th style = 'border: 1px solid black;'>Общая стоимость, $</th>
+            <th style = 'border: 1px solid black;'>Дата регистрации</th>
+            <th style = 'border: 1px solid black;'>Стадия обслуживания</th>
+
+        </tr>
+        {% for order in orders %}
+        <tr style = 'border: 1px solid black;'>
+            <td style = 'border: 1px solid black;'>{{order.order_id}}</td>
+            <td style = 'border: 1px solid black;'><img src = "/img/{{order.file_name}}" style = "width: 70px"></td>
+            <td style = 'border: 1px solid black;'>{{order.product_name}}</td>
+            <td style = 'border: 1px solid black;'>{{order.price}}</td>
+            <td style = 'border: 1px solid black;'>{{order.count}}</td>
+            <td style = 'border: 1px solid black;'>{{order.price * order.count}}</td>
+            <td style = 'border: 1px solid black;'>{{order.date}}</td>
+            <td style = 'border: 1px solid black;'>{{order.status}}</td>
+        </tr>
+        {% endfor %}
+</table>
+</div>
+{% endblock %}
